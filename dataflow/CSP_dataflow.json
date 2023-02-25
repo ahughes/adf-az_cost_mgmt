@@ -1,0 +1,120 @@
+{
+	"name": "CSP_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CSP_costmgmt_exports",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1_test",
+						"type": "DatasetReference"
+					},
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "ExtractAdditionalInfo",
+					"description": "Creating columns 'StorageService' (all derived from \"additionalInfo\" column)"
+				},
+				{
+					"name": "AlterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          billingAccountName as string,",
+				"          partnerName as string,",
+				"          resellerName as string,",
+				"          resellerMpnId as string,",
+				"          customerTenantId as string,",
+				"          customerName as string,",
+				"          costCenter as string,",
+				"          billingPeriodEndDate as date 'MM/dd/yy',",
+				"          billingPeriodStartDate as date 'MM/dd/yy',",
+				"          servicePeriodEndDate as date 'MM/dd/yy',",
+				"          servicePeriodStartDate as date 'MM/dd/yy',",
+				"          date as date 'MM/dd/yy',",
+				"          serviceFamily as string,",
+				"          productOrderId as string,",
+				"          productOrderName as string,",
+				"          consumedService as string,",
+				"          meterId as string,",
+				"          meterName as string,",
+				"          meterCategory as string,",
+				"          meterSubCategory as string,",
+				"          meterRegion as string,",
+				"          ProductId as string,",
+				"          ProductName as string,",
+				"          SubscriptionId as string,",
+				"          subscriptionName as string,",
+				"          publisherType as string,",
+				"          publisherId as string,",
+				"          publisherName as string,",
+				"          resourceGroupName as string,",
+				"          ResourceId as string,",
+				"          resourceLocation as string,",
+				"          location as string,",
+				"          effectivePrice as decimal(38,18),",
+				"          quantity as decimal(38,18),",
+				"          unitOfMeasure as string,",
+				"          chargeType as string,",
+				"          billingCurrency as string,",
+				"          pricingCurrency as string,",
+				"          costInBillingCurrency as decimal(38,18),",
+				"          costInUsd as decimal(38,18),",
+				"          exchangeRatePricingToBilling as boolean,",
+				"          exchangeRateDate as date 'MM/dd/yy',",
+				"          serviceInfo1 as string,",
+				"          serviceInfo2 as string,",
+				"          additionalInfo as string,",
+				"          tags as string,",
+				"          PayGPrice as decimal(38,18),",
+				"          frequency as string,",
+				"          term as string,",
+				"          reservationId as string,",
+				"          reservationName as string,",
+				"          pricingModel as string,",
+				"          unitPrice as decimal(38,18),",
+				"          benefitId as string,",
+				"          benefitName as string,",
+				"          provider as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     purgeFiles: true,",
+				"     rowUrlColumn: 'CostExportFileName',",
+				"     modifiedAfter: (toTimestamp(1676332800000L)),",
+				"     wildcardPaths:['**/*.csv']) ~> source1",
+				"source1 derive(StorageService = iif(regexMatch(additionalInfo, `\"StorageService\":`), regexExtract(additionalInfo, `\"StorageService\": \"(.*?)\"`), \"N/A\")) ~> ExtractAdditionalInfo",
+				"ExtractAdditionalInfo alterRow(upsertIf(true())) ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['date','meterId','ResourceId','StorageService'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     outputRejectedData: true) ~> sink1"
+			]
+		}
+	}
+}

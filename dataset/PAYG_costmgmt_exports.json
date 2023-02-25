@@ -1,0 +1,121 @@
+{
+	"name": "PAYG_costmgmt_exports",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "PAYG",
+				"container": "payg-test"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\"",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SubscriptionGuid",
+				"type": "String"
+			},
+			{
+				"name": "ResourceGroup",
+				"type": "String"
+			},
+			{
+				"name": "ResourceLocation",
+				"type": "String"
+			},
+			{
+				"name": "UsageDateTime",
+				"type": "String"
+			},
+			{
+				"name": "MeterCategory",
+				"type": "String"
+			},
+			{
+				"name": "MeterSubcategory",
+				"type": "String"
+			},
+			{
+				"name": "MeterId",
+				"type": "String"
+			},
+			{
+				"name": "MeterName",
+				"type": "String"
+			},
+			{
+				"name": "MeterRegion",
+				"type": "String"
+			},
+			{
+				"name": "UsageQuantity",
+				"type": "String"
+			},
+			{
+				"name": "ResourceRate",
+				"type": "String"
+			},
+			{
+				"name": "PreTaxCost",
+				"type": "String"
+			},
+			{
+				"name": "ConsumedService",
+				"type": "String"
+			},
+			{
+				"name": "ResourceType",
+				"type": "String"
+			},
+			{
+				"name": "InstanceId",
+				"type": "String"
+			},
+			{
+				"name": "Tags",
+				"type": "String"
+			},
+			{
+				"name": "OfferId",
+				"type": "String"
+			},
+			{
+				"name": "AdditionalInfo",
+				"type": "String"
+			},
+			{
+				"name": "ServiceInfo1",
+				"type": "String"
+			},
+			{
+				"name": "ServiceInfo2",
+				"type": "String"
+			},
+			{
+				"name": "ServiceName",
+				"type": "String"
+			},
+			{
+				"name": "ServiceTier",
+				"type": "String"
+			},
+			{
+				"name": "Currency",
+				"type": "String"
+			},
+			{
+				"name": "UnitOfMeasure",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "kno2-costmgmt-dev-wus3-adf",
+	"location": "westus3",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d7cd6fef-8eec-4e63-98d1-8d440caa6b67",
+		"tenantId": "30911934-7663-410b-b282-10e95eda882c"
+	}
+}
