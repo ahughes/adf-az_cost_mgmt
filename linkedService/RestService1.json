@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://api.ipify.org",
+			"url": "https://jsonplaceholder.typicode.com/todos/1",
 			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
