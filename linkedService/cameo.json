@@ -1,0 +1,12 @@
+{
+	"name": "cameo",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"sasUri": "https://cameodatabase.blob.core.windows.net/sqldatabasecameo20",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEVFMDQ1NTQzLUFBNDgtNDBFRi1BMEIyLUI3QTMxNDhDNjBCMl8wNTgyOGE2Ny1lMWJhLTQ2ODQtODZiNC1kMWU1NTZmOGUzMmIiDQp9"
+		}
+	}
+}
