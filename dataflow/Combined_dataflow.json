@@ -45,6 +45,9 @@
 				},
 				{
 					"name": "SelectColumnsFromCSP"
+				},
+				{
+					"name": "AlterRow1"
 				}
 			],
 			"scriptLines": [
@@ -200,13 +203,14 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> SelectColumnsFromCSP",
-				"DerivedColumns sink(allowSchemaDrift: true,",
+				"DerivedColumns alterRow(upsertIf(true())) ~> AlterRow1",
+				"AlterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
-				"     insertable:true,",
+				"     insertable:false,",
 				"     updateable:false,",
-				"     upsertable:false,",
-				"     recreate:true,",
+				"     upsertable:true,",
+				"     keys:['date','ResourceId','meterId','StorageService'],",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
