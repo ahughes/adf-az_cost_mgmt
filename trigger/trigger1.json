@@ -1,0 +1,24 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/upsert-test/blobs/Kno2-Data and Analytics/dailypowerbi",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/kno2-costmgmt-dev-wus3-rg/providers/Microsoft.Storage/storageAccounts/kno2costmgmtdevwus3sa",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
