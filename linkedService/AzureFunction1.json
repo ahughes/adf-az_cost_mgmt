@@ -6,6 +6,10 @@
 		"typeProperties": {
 			"functionAppUrl": "https://test-rcu.azurewebsites.net",
 			"authentication": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
