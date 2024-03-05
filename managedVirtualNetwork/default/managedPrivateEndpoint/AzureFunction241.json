@@ -1,7 +1,0 @@
-{
-	"name": "AzureFunction241",
-	"properties": {
-		"privateLinkResourceId": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/test/providers/Microsoft.Web/sites/test-rcu",
-		"groupId": "sites"
-	}
-}
