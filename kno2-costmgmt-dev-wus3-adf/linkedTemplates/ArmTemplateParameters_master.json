@@ -14,6 +14,12 @@
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/kno2-costmgmt-dev-wus3-rg/providers/Microsoft.Storage/storageAccounts/kno2costmgmtdevwus3sa"
 		},
+		"AzureFunction241_properties_privateLinkResourceId": {
+			"value": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/test/providers/Microsoft.Web/sites/test-rcu"
+		},
+		"AzureFunction241_properties_groupId": {
+			"value": "sites"
+		},
 		"containerUri": {
 			"value": ""
 		},

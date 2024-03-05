@@ -19,6 +19,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/kno2-costmgmt-dev-wus3-rg/providers/Microsoft.Storage/storageAccounts/kno2costmgmtdevwus3sa"
 		},
+		"AzureFunction241_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/139cb45c-2ee1-4dbc-b7da-ecdfccd48645/resourceGroups/test/providers/Microsoft.Web/sites/test-rcu"
+		},
+		"AzureFunction241_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sites"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +62,12 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"AzureFunction241_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureFunction241_properties_privateLinkResourceId')]"
+					},
+					"AzureFunction241_properties_groupId": {
+						"value": "[parameters('AzureFunction241_properties_groupId')]"
 					}
 				}
 			},
